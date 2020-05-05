@@ -3,11 +3,14 @@ package Dates;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 public class Dates {
-
+    private static final Locale BRAZIL = new Locale("pt", "BR");
+    
     /**
      * Verifica se uma data em texto está no formato indicado.
      * @param dateString Data no formato de texto
@@ -54,5 +57,20 @@ public class Dates {
         }
     }
     
-    
+    /**
+     *  Convert date string to calendar date with the format informed
+     *  @param dateString String with date
+     *  @param dateFormat Format to extract date from dateString
+     */
+    private Calendar getCalendarFromFormat(String dateString, String dateFormat) {
+        try {
+            Calendar cal = Calendar.getInstance();
+            SimpleDateFormat sdf = new SimpleDateFormat(dateFormat, BRAZIL);
+            cal.setTime(sdf.parse(dateString));
+
+            return cal;
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }
