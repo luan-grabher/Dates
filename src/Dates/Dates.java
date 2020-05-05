@@ -62,7 +62,7 @@ public class Dates {
      *  @param dateString String with date
      *  @param dateFormat Format to extract date from dateString
      */
-    private Calendar getCalendarFromFormat(String dateString, String dateFormat) {
+    public Calendar getCalendarFromFormat(String dateString, String dateFormat) {
         try {
             Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat(dateFormat, BRAZIL);
