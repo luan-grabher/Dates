@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Locale;
 
 public class Dates {
-    private static final Locale BRAZIL = new Locale("pt", "BR");
+    public static final Locale BRAZIL = new Locale("pt", "BR");
     
     /**
      * Verifica se uma data em texto está no formato indicado.
