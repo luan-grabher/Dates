@@ -58,9 +58,10 @@ public class Dates {
     }
     
     /**
-     *  Convert date string to calendar date with the format informed
-     *  @param dateString String with date
-     *  @param dateFormat Format to extract date from dateString
+     * Convert date string to calendar date with the format informed
+     * @param dateString String with date
+     * @param dateFormat Format to extract date from dateString
+     * @return Calendario da data informada
      */
     public static Calendar getCalendarFromFormat(String dateString, String dateFormat) {
         try {
