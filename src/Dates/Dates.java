@@ -74,4 +74,19 @@ public class Dates {
             return null;
         }
     }
+    
+    /**
+    * Converte Calendar para o formato de string informado
+    * @param cal Calendário a ser convertido
+    * @param dateFormat Formato para converter
+    * @return A String do calendário no formato informado ou NULL se ocorrer erro
+    */
+    public static String getCalendarInThisStringFormat(Calendar cal, String dateFormat) {
+        try {
+            SimpleDateFormat sdf = new SimpleDateFormat(dateFormat, BRAZIL);            
+            return sdf.format(cal.getTime());
+        } catch (Exception e) {
+            return null;
+        }
+    }
 }
