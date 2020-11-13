@@ -9,10 +9,12 @@ import java.util.List;
 import java.util.Locale;
 
 public class Dates {
+
     public static final Locale BRAZIL = new Locale("pt", "BR");
-    
+
     /**
      * Verifica se uma data em texto está no formato indicado.
+     *
      * @param dateString Data no formato de texto
      * @param dateFormat Formato da data
      * @return Verdadeiro se a data em string estiver no formato indicado.
@@ -27,38 +29,50 @@ public class Dates {
             return false;
         }
     }
-    
+
     /**
-     * Converte um número no mês abreviado.
+     * Converte um número no mês abreviado em minúsculo.
+     * Caso o mes nao exista, retorna janeiro
+     *
      * @param mes Mês em número.
      * @return O mês abreviado minúsculo. Ex: mes = 1, return = 'jan'
      */
-    public static String getMonthAbbr_PtBr(int mes){
-        String defaultAbbr = "jan";
+    public static String getMonthAbbr_PtBr(int mes) {
+        List<String> months = getBrazilianMonths();
+        
         try {
-            List<String> listMonthAbbr_PtBr =  new ArrayList<>();
-            listMonthAbbr_PtBr.add(defaultAbbr);//padrao
-            listMonthAbbr_PtBr.add("jan");
-            listMonthAbbr_PtBr.add("fev");
-            listMonthAbbr_PtBr.add("mar");
-            listMonthAbbr_PtBr.add("abr");
-            listMonthAbbr_PtBr.add("mai");
-            listMonthAbbr_PtBr.add("jun");
-            listMonthAbbr_PtBr.add("jul");
-            listMonthAbbr_PtBr.add("ago");
-            listMonthAbbr_PtBr.add("set");
-            listMonthAbbr_PtBr.add("out");
-            listMonthAbbr_PtBr.add("nov");
-            listMonthAbbr_PtBr.add("dez");
-            
-            return listMonthAbbr_PtBr.get(mes);
+            return months.get(mes).substring(0, 3).toLowerCase();
         } catch (Exception e) {
-            return defaultAbbr;
+            return months.get(0).substring(0, 3).toLowerCase();
         }
     }
-    
+
+    /**
+     * Retorna lista dos meses em português, janeiro é 0. A LISTA COMEÇA EM 0
+     *
+     * @return lista dos meses em português, janeiro é 0
+     */
+    public static List<String> getBrazilianMonths() {
+        List<String> months = new ArrayList<>();
+        months.add("JANEIRO");
+        months.add("FEVEREIRO");
+        months.add("MARÇO");
+        months.add("ABRIL");
+        months.add("MAIO");
+        months.add("JUNHO");
+        months.add("JULHO");
+        months.add("AGOSTO");
+        months.add("SETEMBRO");
+        months.add("OUTUBRO");
+        months.add("NOVEMBRO");
+        months.add("DEZEMBRO");
+
+        return months;
+    }
+
     /**
      * Convert date string to calendar date with the format informed
+     *
      * @param dateString String with date
      * @param dateFormat Format to extract date from dateString
      * @return Calendario da data informada
@@ -74,16 +88,18 @@ public class Dates {
             return null;
         }
     }
-    
+
     /**
-    * Converte Calendar para o formato de string informado
-    * @param cal Calendário a ser convertido
-    * @param dateFormat Formato para converter
-    * @return A String do calendário no formato informado ou NULL se ocorrer erro
-    */
+     * Converte Calendar para o formato de string informado
+     *
+     * @param cal Calendário a ser convertido
+     * @param dateFormat Formato para converter
+     * @return A String do calendário no formato informado ou NULL se ocorrer
+     * erro
+     */
     public static String getCalendarInThisStringFormat(Calendar cal, String dateFormat) {
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat(dateFormat, BRAZIL);            
+            SimpleDateFormat sdf = new SimpleDateFormat(dateFormat, BRAZIL);
             return sdf.format(cal.getTime());
         } catch (Exception e) {
             return null;
