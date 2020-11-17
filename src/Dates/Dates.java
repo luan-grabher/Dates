@@ -71,10 +71,10 @@ public class Dates {
     }
 
     /**
-     * Convert date string to calendar date with the format informed
+     * Converte a data em texto para calendario utilizando o formato passado
      *
-     * @param dateString String with date
-     * @param dateFormat Format to extract date from dateString
+     * @param dateString String com a data
+     * @param dateFormat Formato para converter, use dd/MM/yyyy para Brasileiro
      * @return Calendario da data informada
      */
     public static Calendar getCalendarFromFormat(String dateString, String dateFormat) {
@@ -93,7 +93,7 @@ public class Dates {
      * Converte Calendar para o formato de string informado
      *
      * @param cal Calendário a ser convertido
-     * @param dateFormat Formato para converter
+     * @param dateFormat Formato para converter, use dd/MM/yyyy para Brasileiro
      * @return A String do calendário no formato informado ou NULL se ocorrer
      * erro
      */
