@@ -16,11 +16,11 @@ public class Dates {
      * Verifica se uma data em texto está no formato indicado.
      *
      * @param dateString Data no formato de texto
-     * @param dateFormat Formato da data
+     * @param dateFormat Formato da data, use dd/MM/yyyy para Brasileiro
      * @return Verdadeiro se a data em string estiver no formato indicado.
      */
     public static boolean isDateInThisFormat(String dateString, String dateFormat) {
-        SimpleDateFormat format = new SimpleDateFormat(dateFormat);
+        SimpleDateFormat format = new SimpleDateFormat(dateFormat, BRAZIL);
         try {
             format.setLenient(false);
             Date date = format.parse(dateString);
