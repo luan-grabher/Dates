@@ -79,6 +79,7 @@ public class Dates {
      */
     public static Calendar getCalendarFromFormat(String dateString, String dateFormat) {
         try {
+            //Instancia calendario
             Calendar cal = Calendar.getInstance();
             SimpleDateFormat sdf = new SimpleDateFormat(dateFormat, BRAZIL);
             cal.setTime(sdf.parse(dateString));
